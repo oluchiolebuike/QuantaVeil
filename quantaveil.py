@@ -1,6 +1,5 @@
 # SETUP 
 # run : pip install qiskit qiskit-aer matplotlib pylatexenc
-# then run program file
 
 from qiskit import QuantumCircuit
 from qiskit_aer import Aer
@@ -13,7 +12,7 @@ import matplotlib.pyplot as plt
 def grover_oracle(circuit):
     """oracle marking |11>"""
     circuit.cz(0, 1)
-    # circuit.cx(0, 1) 
+    # circuit.cx(0, 1)
     # circuit.cx(1, 0)
 
 def grover_diffuser(circuit):
@@ -69,5 +68,12 @@ for state, count in counts.items():
     print(f"{state}: {count/total:.3f}")
 
 # highlight most likely state
-target = max(counts, key=counts.get)
-print(f"\nMost likely state: |{target}>")
+max_count = max(counts.values())
+
+most_likely_states = [state for state, count in counts.items() if count == max_count]
+
+print(f"\nMax probability count: {max_count}")
+print("Most likely state(s):")
+
+for state in most_likely_states:
+    print(f"|{state}>")
