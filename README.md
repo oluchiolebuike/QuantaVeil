@@ -3,12 +3,12 @@ QuantaVeil is a starter project that simulates a quantum computer, demonstrating
 
 The name came from combining two ideas:
 
--“Quanta” → quantum computing (qubits, superposition, algorithms like Grover’s)
--“Veil” → something hidden or abstract being revealed (like uncovering how quantum systems behave through simulation)
+“Quanta” → quantum computing (qubits, superposition, algorithms like Grover’s)
+“Veil” → something hidden or abstract being revealed (like uncovering how quantum systems behave through simulation)
 
 So the meaning behind it is basically:
 
--QuantaVeil = revealing the hidden world of quantum computation through simulation
+QuantaVeil = revealing the hidden world of quantum computation through simulation
 
 
 ## Installation
