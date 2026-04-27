@@ -1,5 +1,5 @@
 # SETUP 
-# run : pip install qiskit qiskit-aer matplotlib
+# run : pip install qiskit qiskit-aer matplotlib pylatexenc
 # then run program file
 
 from qiskit import QuantumCircuit
