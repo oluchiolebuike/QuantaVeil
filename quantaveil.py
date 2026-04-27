@@ -12,8 +12,9 @@ import matplotlib.pyplot as plt
 
 def grover_oracle(circuit):
     """oracle marking |11>"""
-    circuit.cx(0, 1)
-    circuit.cx(1, 0)
+    circuit.cz(0, 1)
+    # circuit.cx(0, 1) 
+    # circuit.cx(1, 0)
 
 def grover_diffuser(circuit):
     """diffuser (inversion about the mean)"""
