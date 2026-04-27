@@ -3,8 +3,8 @@ QuantaVeil is a starter project that I've started to reveal the hidden world of 
 
 The name came from combining two ideas:
 
-“Quanta” → quantum computing (qubits, superposition, algorithms like Grover’s)
-“Veil” → something hidden or abstract being revealed (like uncovering how quantum systems behave through simulation)
+- “Quanta” → quantum computing (qubits, superposition, algorithms like Grover’s)
+- “Veil” → something hidden or abstract being revealed (like uncovering how quantum systems behave through simulation)
 
 
 ## Installation
