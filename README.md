@@ -72,7 +72,7 @@ Create a full stack system for QuantaVeil using React, FastAPI or Flask & betwee
 ## How the new updated system will work
 - Quantum Circuit Builder: Allow users to drag and drop quantum gates (e.g., Hadamard, Pauli-X) onto qubits. This could be a grid or a timeline-style UI where users can see the circuit evolving as they add gates. 
 - Quantum State Visualizer: Once the circuit is created, provide real-time visualizations (like Bloch Sphere for individual qubits, histograms for measurement outcomes). 
-- Run Simulation: After constructing the quantum circuit, users can click a "Run Simulation" button. This will send the circuit to the backend, where it will be simulated using your existing quantum logic, and the results (measurement outcomes) will be returned and visualized on the frontend.
+- Run Simulation: After constructing the quantum circuit, users can click a "Run Simulation" button. This will send the circuit to the backend, where it will be simulated using your existing quantum logic and the results (measurement outcomes) will be returned and visualized on the frontend.
 - Results Display: Display the simulation results in a visually appealing way, such as a histogram showing the measurement probabilities or a bloch sphere visualization showing quantum state rotations. 
 
 
