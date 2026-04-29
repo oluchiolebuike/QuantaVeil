@@ -41,7 +41,7 @@ However, in this simulation:
 - The amplification of the target state is weak and inconsistent
 - The circuit is effectively running a minimal Grover iteration, where quantum interference effects remain probabilistic rather than deterministic
 
-## What this simulation does (simple explanation)
+## What this simulation does 
 
 This project simulates a small quantum computer using Qiskit and demonstrates the core ideas behind Grover’s Algorithm:
 
@@ -65,19 +65,4 @@ The program outputs:
 
 These visualizations show how quantum probability distributions evolve after applying Grover’s Algorithm.
 
-## Future Improvements
 
-Create a full stack system for QuantaVeil using React, FastAPI or Flask & between D3.js or React-Vis 
-
-## How the new updated system will work
-- Quantum Circuit Builder: Allow users to drag and drop quantum gates (e.g., Hadamard, Pauli-X) onto qubits. This could be a grid or a timeline-style UI where users can see the circuit evolving as they add gates. 
-- Quantum State Visualizer: Once the circuit is created, provide real-time visualizations (like Bloch Sphere for individual qubits, histograms for measurement outcomes). 
-- Run Simulation: After constructing the quantum circuit, users can click a "Run Simulation" button. This will send the circuit to the backend, where it will be simulated using your existing quantum logic and the results (measurement outcomes) will be returned and visualized on the frontend.
-- Results Display: Display the simulation results in a visually appealing way, such as a histogram showing the measurement probabilities or a bloch sphere visualization showing quantum state rotations. 
-
-
-## Key takeaway
-
-Even in this simplified simulation, a core principle of quantum computing is demonstrated:
-
-Quantum algorithms do not produce fixed answers. Instead, they amplify probabilities, meaning outcomes can vary across runs unless the amplification is sufficiently strong.
