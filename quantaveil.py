@@ -1,4 +1,3 @@
-# SETUP 
 # run : pip install qiskit qiskit-aer matplotlib pylatexenc
 
 from qiskit import QuantumCircuit
@@ -10,13 +9,13 @@ import matplotlib.pyplot as plt
 # grover's algorithm
 
 def grover_oracle(circuit):
-    """oracle marking |11>"""
+    # oracle marking |11>
     circuit.cz(0, 1)
-    # circuit.cx(0, 1)
+    # circuit.cx(0, 1) 
     # circuit.cx(1, 0)
 
 def grover_diffuser(circuit):
-    """diffuser (inversion about the mean)"""
+    # diffuser (inversion about the mean)
     circuit.h([0, 1])
     circuit.x([0, 1])
     circuit.cz(0, 1)
