@@ -22,7 +22,6 @@ The simulation was executed 7 times to observe the behaviour of Grover’s Algor
 
 ## What we observed
 
-Across repeated runs:
 Day 1:
 - The probabilities of all states (|00⟩, |01⟩, |10⟩, |11⟩) remain relatively close (around 0.23–0.28)
 - The most likely state changes between runs:
