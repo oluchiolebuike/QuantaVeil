@@ -10,15 +10,18 @@ import matplotlib.pyplot as plt
 
 def grover_oracle(circuit):
     # oracle marking |11>
+    # flip |11> using CZ
     circuit.cz(0, 1)
     # circuit.cx(0, 1) 
     # circuit.cx(1, 0)
 
 def grover_diffuser(circuit):
     # diffuser (inversion about the mean)
+    # amplify |11> upward
+    # note: maybe it didn't invert about the correct mean
     circuit.h([0, 1])
     circuit.x([0, 1])
-    circuit.cz(0, 1)
+    circuit.cz(0, 1)  # marks |11> : |00> after x
     circuit.x([0, 1])
     circuit.h([0, 1])
 
@@ -40,15 +43,14 @@ qc.measure([0, 1], [0, 1])
 # simulation
 simulator = Aer.get_backend('qasm_simulator')
 compiled_circuit = transpile(qc, simulator)
-result = simulator.run(compiled_circuit, shots=1024).result()
+# result = simulator.run(compiled_circuit, shots=1024).result()
+result = simulator.run(compiled_circuit, shots=8192).result() # increased shots from 1024 to 8192 to account for shot noise 
 
 # results
 counts = result.get_counts()
 
 # sort results (00, 01, 10, 11)
 counts = dict(sorted(counts.items()))
-
-
 
 plot_histogram(counts, title="Grover Search Results (Target = |11⟩)", color='midnightblue')
 plt.tight_layout()
@@ -57,6 +59,7 @@ plt.show()
 # circuit diagram
 print("\nQuantum Circuit:")
 qc.draw('mpl')
+qc.draw('text') # verifying gate order
 plt.show()
 
 
@@ -65,6 +68,8 @@ total = sum(counts.values())
 print("\nProbabilities:")
 for state, count in counts.items():
     print(f"{state}: {count/total:.3f}")
+# the most likely state should be target state |11> 
+# P = 1.0
 
 # highlight most likely state
 max_count = max(counts.values())
