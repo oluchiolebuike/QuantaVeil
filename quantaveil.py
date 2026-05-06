@@ -2,6 +2,7 @@
 
 from qiskit import QuantumCircuit
 from qiskit_aer import Aer
+from qiskit_aer import AerSimulator # deutsch algo
 from qiskit import transpile
 from qiskit.visualization import plot_histogram
 import matplotlib.pyplot as plt
@@ -24,6 +25,56 @@ def grover_diffuser(circuit):
     circuit.cz(0, 1)  # marks |11> : |00> after x
     circuit.x([0, 1])
     circuit.h([0, 1])
+    
+# deutsch's algorithm
+
+def deutsch(case:int):
+    # function generates a quantum circuit for 1 OI from one bit to one bit
+    if case not in [1, 2, 3, 4]:
+        raise ValueError("'case' must be 1, 2, 3 or 4.")
+
+    f = QuantumCircuit(2)
+    if case in [2, 3]:
+        f.cx(0, 1)
+    
+    if case in [3, 4]:
+        f.x(1)
+    return f
+
+# compile circuit for deutsch
+def compile_circuit(function: QuantumCircuit):
+
+    n = function.num_qubits - 1
+    qc = QuantumCircuit(n + 1, n)
+
+    qc.x(n)
+    qc.h(range(n + 1))
+
+    qc.barrier()
+    qc.compose(function, inplace=True)
+    qc.barrier()
+
+    qc.h(range(n))
+    qc.measure(range(n), range(n))
+
+    return qc
+# run deutsch algorithm   
+def deutsch_algorithm(function: QuantumCircuit):
+    
+    qc = compile_circuit(function)
+
+    simulator = AerSimulator()
+    result = simulator.run(qc, shots=1024).result()
+    counts = result.get_counts()
+
+    # majority decision
+    if counts.get('0', 0) > counts.get('1', 0):
+        return "constant"
+    return "balanced"
+
+# test deutsch
+f = deutsch(1)
+print("Deutsch result:", deutsch_algorithm(f))
 
 # build circuit
 qc = QuantumCircuit(2, 2)
