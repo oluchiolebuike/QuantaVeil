@@ -24,6 +24,56 @@ def grover_diffuser(circuit):
     circuit.cz(0, 1)  # marks |11> : |00> after x
     circuit.x([0, 1])
     circuit.h([0, 1])
+    
+# deutsch's algo: run one query as opposed to 2 
+def deutsch(case:int):
+    # function generates a quantum circuit for 1 OI from one bit to one bit
+    if case not in [1, 2, 3, 4]:
+        raise ValueError("'case' must be 1, 2, 3 or 4.")
+
+    f = QuantumCircuit(2):
+    if case in [2, 3]:
+        f.cx(0, 1)
+    
+    if case in [3, 4]:
+        f.x(1)
+    return f
+# display circuit for function(1)
+display(deutsch(3).draw(output="mpl"))
+
+# compile circuit for deutsch
+def compile_circuit(function: QuantumCircuit):
+
+    n = function.num_qubits - 1
+    qc = QuantumCircuit(n + 1, n)
+
+    qc.x(n)
+    qc.h(range(n + 1))
+
+    qc.barrier()
+    qc.compose(function, inplace=True)
+    qc.barrier()
+
+    qc.h(range(n))
+    qc.measure(range(n), range(n))
+
+    return qc
+display(compile_circuit(deutsch(1)).draw(output="mpl"))
+
+# phase kickback: top qubits changed while leftmost qubit stays the same
+# is one-bit function: constant or balanced
+def deutsch_algorithm(function: QuantumCircuit):
+    qc = compile_circuit(function)
+
+    result = AerSimulator().run(qc, shots=1, memory=True).result()
+    measurements = result.get_memory()
+    if measurements[0] == "0":
+        return "constant"
+    return "balanced"
+
+# run deutsch algo on 1 of [1,2,3,4] 
+f = deutsch_function(1)
+display(deutsch_algorithm(f))
 
 # build circuit
 qc = QuantumCircuit(2, 2)
