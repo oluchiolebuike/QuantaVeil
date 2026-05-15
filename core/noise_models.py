@@ -1,7 +1,7 @@
 # Author            : Oluchi Aviwe Olebuike
 # Date Created      : 09/05/2026
 # Project title     : Quantum Algorithm Noise Analysis using QEC-Inspired Models
-# File name         : grovers_algorithm.py
+# File name         : noise_models.py
 # Modernised        : Qiskit 2.x / qiskit-aer 0.17+
 
 
