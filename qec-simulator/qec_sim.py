@@ -55,7 +55,7 @@ for case in [1, 2, 3, 4]:
 # grovers algorithm analysis
 print("Grover Search (Noisy Simulation)")
 qc = build_grover()
-counts = runner.run(qc, shots=8192)
+counts = runner.run(qc, shots=8192) # 8192 shots used to mitigate the effects of hardware noise
 print(counts)
 
 # LER
