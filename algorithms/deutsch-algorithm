@@ -1,1 +1,78 @@
+# Author            : Oluchi Aviwe Olebuike
+# Date Created      : 09/05/2026
+# Project title     : Quantum Algorithm Noise Analysis using QEC-Inspired Models
+# File name:        : deutsch_algorithm
+# Modernised        : Qiskit 2.x / qiskit-aer 0.17+
+
+
+# Description:
+# This experiment evaluates the robustness of quantum algorithms under
+# realistic superconducting qubit noise environments
+
+# The simulation framework studies the impact of:
+# Relaxation Errors (T1 Decoherence)
+# Dephasing Errors (T2 Decoherence)
+# Depolarization Noise
+
+
+# on the following quantum algorithms:
+# Deutsch's Algorithm
+# Grover's Search Algorithm
+
+# The objective is to investigate:
+# Logical state degradation
+# Noise sensitivity
+# Probability distribution drift
+# Algorithm stability under increasing decoherence
+
+# Installations:
+# pip install qiskit qiskit-aer matplotlib numpy pandas seaborn
+
+from qiskit import QuantumCircuit
+
+# building oracle
+def deutsch(case:int):
+    # function generates a quantum circuit for 1 OI from one bit to one bit
+    # case: oracle configuration number
+    
+    if case not in [1, 2, 3, 4]:
+        raise ValueError("'case' must be 1, 2, 3 or 4.")
+
+    f = QuantumCircuit(2)
+
+    # balanced functions
+    if case in [2, 3]:
+        f.cx(0, 1)
+    
+    # flip output
+    if case in [3, 4]:
+        f.x(1)
+    return f
+
+# compile circuit for deutsch
+def compile_circuit(oracle: QuantumCircuit):
+    # creates complete deutsch algorithm using the deutsch oracle
+    n = oracle.num_qubits - 1 # no. of input qubits
+    qc = QuantumCircuit(n + 1, n)
+
+    # initialising th ancilla qubit to |1>
+    qc.x(n)
+
+    # hadamard on all qubits (superposition)
+    qc.h(range(n + 1))
+
+    qc.barrier()
+
+    # applying the oracle
+    qc.compose(function, inplace=True)
+    qc.barrier()
+
+    # inference step
+    qc.h(range(n))
+
+    # measurement
+    qc.measure(range(n), range(n))
+
+    return qc
+
 
