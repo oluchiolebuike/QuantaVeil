@@ -32,24 +32,24 @@
 from qiskit.visualization import plot_histogram
 import matplotlib.pyplot as plt
 
-from core.simulator import QEC_Simulator
+from core.noisy_runner import NoisyRunner
 from core.noise_models import depolarization_model
 
-from algorithms.deutsch import deutsch, compile_deutsch
-from algorithms.grover import build_grover
+from algorithms.deutsch_algorithm import deutsch, compile_circuit
+from algorithms.grovers_algorithm import build_grover
 
 from analysis.metrics import logical_error_rate
 
 # noise environment setup
 noise = depolarization_model(0.05)
-sim = QEC_Simulator(noise_model=noise)
+sim = NoisyRunner(noise_model=noise)
 
 # deutsch algorithm analysis
 print("Deutsch Algorithm (Noisy Simulation)")
 
 for case in [1, 2, 3, 4]:
     oracle = deutsch(case)
-    qc = compile_deutsch(oracle)
+    qc = compile_circuit(oracle)
     counts = sim.run(qc, shots=8192)# used to mitigate the effects of hardware noise and should not affect theoretical output of algorithm (might adjust shots again for experiment) 
     print(f"Case {case}: {counts}")
 
@@ -60,7 +60,7 @@ counts = sim.run(qc, shots=8192) # 8192 shots used to mitigate the effects of ha
 print(counts)
 
 # LER
-ler = logical_error_rate(counts, expected='11') # target state set to |11>
+ler = logical_error_rate(counts, '11') # target state set to |11>
 print(f"\nLogical Error Rate: {ler:.6f}")
 
 # probability distribution
