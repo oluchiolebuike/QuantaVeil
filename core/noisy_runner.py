@@ -38,7 +38,7 @@ class NoisyRunner:
     def __init__(self, noise_model=None):
         self.simulator = AerSimulator(noise_model=noise_model)
 
-    def run(self, circuit, shots=8192):# might want to change shots during experimentation
+    def run(self, circuit, shots=8192):# (might want to change shots during experimentation)
 
         compiled = transpile(circuit, self.simulator)
 
