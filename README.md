@@ -6,7 +6,7 @@ The name came from combining two ideas:
 - “Quanta” : quantum computing (qubits, superposition, algorithms like Grover’s)
 - “Veil” : something hidden or abstract being revealed (like uncovering how quantum systems behave through simulation)
 
-A quantum computing simulation framework developed using Qiskit to investigate how quantum algorithms behave under realistic superconducting qubit noise environments.
+QuantaVeil is now a quantum computing simulation framework developed using Qiskit to investigate how quantum algorithms behave under realistic superconducting qubit noise environments.
 
 The project evaluates the robustness and stability of fundamental quantum algorithms such as Deutsch's Algorithm and Grover's Search Algorithm under multiple quantum noise models including depolarization, relaxation (T1 decoherence), and dephasing (T2 decoherence).
 
