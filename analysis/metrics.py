@@ -26,7 +26,7 @@
 # Algorithm stability under increasing decoherence
 
 # Installations:
-# pip install qiskit qiskit-aer matplotlib numpy pandas seaborn
+# pip install qiskit qiskit-aer matplotlib numpy pandas seaborn pylatexenc
 
 # contains analysis metrics for evaluating algorithm robustness
 # specifically logical error rate: measures probability of failure relative to the expected logical state
