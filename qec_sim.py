@@ -54,9 +54,9 @@ for case in [1, 2, 3, 4]:
     print(f"Case {case}: {counts}")
 
 # grovers algorithm analysis
-print("Grover Search (Noisy Simulation)")
+print("\nGrover Search (Noisy Simulation)")
 qc = build_grover()
-counts = sim.run(qc, shots=8192) # 8192 shots used to mitigate the effects of hardware noise
+counts = sim.run(qc, shots=8192) # 8192 shots used to mitigate the effects of hardware noise (might change during experimentation)
 print(counts)
 
 # LER
