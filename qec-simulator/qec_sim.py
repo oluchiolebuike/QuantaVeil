@@ -49,7 +49,7 @@ print("Deutsch Algorithm (Noisy Simulation)")
 for case in [1, 2, 3, 4]:
     oracle = deutsch(case)
     qc = compile_deutsch(oracle)
-    counts = runner.run(qc, shots=8192)# might adjust shots again for experiment
+    counts = runner.run(qc, shots=8192)# used to mitigate the effects of hardware noise and should not affect theoretical output of algorithm (might adjust shots again for experiment) 
     print(f"Case {case}: {counts}")
 
 # grovers algorithm analysis
@@ -59,7 +59,7 @@ counts = runner.run(qc, shots=8192) # 8192 shots used to mitigate the effects of
 print(counts)
 
 # LER
-ler = logical_error_rate(counts, target_state='11')
+ler = logical_error_rate(counts, target_state='11') # target state set to |11>
 print(f"\nLogical Error Rate: {ler:.6f}")
 
 # probability distribution
