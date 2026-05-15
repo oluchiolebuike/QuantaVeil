@@ -26,7 +26,7 @@
 # Algorithm stability under increasing decoherence
 
 # Installations:
-# pip install qiskit qiskit-aer matplotlib numpy pandas seaborn
+# pip install qiskit qiskit-aer matplotlib numpy pandas seaborn pylatexenc
 
 from qiskit.visualization import plot_histogram
 import matplotlib.pyplot as plt
