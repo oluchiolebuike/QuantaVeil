@@ -1,7 +1,7 @@
 # Author            : Oluchi Aviwe Olebuike
 # Date Created      : 09/05/2026
 # Project title     : Quantum Algorithm Noise Analysis using QEC-Inspired Models
-# File name:        : deutsch_algorithm
+# File name:        : deutsch_algorithm.py
 # Modernised        : Qiskit 2.x / qiskit-aer 0.17+
 
 
@@ -30,6 +30,9 @@
 
 from qiskit import QuantumCircuit
 
+# deutsch's algorithm demonstarates quantum parallelism and interference 
+# by determining properties of hidden function with a single oracle query
+
 # building oracle
 def deutsch(case:int):
     # function generates a quantum circuit for 1 OI from one bit to one bit
@@ -52,6 +55,7 @@ def deutsch(case:int):
 # compile circuit for deutsch
 def compile_circuit(oracle: QuantumCircuit):
     # creates complete deutsch algorithm using the deutsch oracle
+    
     n = oracle.num_qubits - 1 # no. of input qubits
     qc = QuantumCircuit(n + 1, n)
 
@@ -70,7 +74,7 @@ def compile_circuit(oracle: QuantumCircuit):
     # inference step
     qc.h(range(n))
 
-    # measurement
+    # measuring output states
     qc.measure(range(n), range(n))
 
     return qc
