@@ -29,11 +29,11 @@
 # Installations:
 # pip install qiskit qiskit-aer matplotlib numpy pandas seaborn
 
-# executes quantum circuits under noisy simulation environments
 
 from qiskit import transpile 
 from qiskit_aer import AerSimulator
 
+# executes quantum circuits under noisy simulation environments
 class NoisyRunner:
 
     def __init__(self, noise_model=None):
