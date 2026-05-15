@@ -45,7 +45,7 @@ noise = depolarization_model(0.05)
 sim = NoisyRunner(noise_model=noise)
 
 # deutsch algorithm analysis
-print("Deutsch Algorithm (Noisy Simulation)")
+print("Deutsch's Algorithm (Noisy Simulation)")
 
 for case in [1, 2, 3, 4]:
     oracle = deutsch(case)
@@ -54,7 +54,7 @@ for case in [1, 2, 3, 4]:
     print(f"Case {case}: {counts}")
 
 # grovers algorithm analysis
-print("\nGrover Search (Noisy Simulation)")
+print("\nGrover's Search Algorithm (Noisy Simulation)")
 qc = build_grover()
 counts = sim.run(qc, shots=8192) # 8192 shots used to mitigate the effects of hardware noise (might change during experimentation)
 print(counts)
