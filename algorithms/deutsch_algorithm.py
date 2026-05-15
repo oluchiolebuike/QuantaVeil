@@ -69,7 +69,7 @@ def compile_circuit(oracle: QuantumCircuit):
     qc.barrier()
 
     # applying the oracle
-    qc.compose(function, inplace=True)
+    qc.compose(oracle, inplace=True)
     qc.barrier()
 
     # inference step
