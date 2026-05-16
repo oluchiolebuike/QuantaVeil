@@ -48,6 +48,15 @@ from qiskit_aer.noise.errors import (depolarizing_error,
 # dephasing : transition of quantum state to a classical one - environmental coupling
 
 # creates a realistic superconducting qubit noise model
+# p1 = 0.01: baseline probability of a single qubit depolarizing error occuring - 1% probability the qubit state 
+# is randomly flipped into a mixed state of X, Y, Z errors
+# t1: thermal relaxation time in ns (set to 50 microseconds in this experiment) - how long a qubit can maintain its excited state |1> before decaying
+# decaying to the ground state |0>
+# t2: phase coherence time in ns (set to 70 microseconds in this experiment) - how long a qubit can hold quantum superposition before losing its phase relationship
+# gate_time_1q: duration of a single qubit operation (set to 50 ns in this experiment) - longer gate times allow more time for T1 and T2 decay
+# to degrade the qubit state
+# gate_time_2q: duration of a two qubit operation (set to 300 ns in this experiment) - 2 qubit gates much slower due to suffering higher thermal decay
+# and dephasing errors
 def depolarization_model(p1=0.01, t1: float = 50e3, t2: float = 70e3, gate_time_1q: float =50, gate_time_2q: float = 300):
     
     noiseModel = NoiseModel()
