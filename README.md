@@ -12,11 +12,11 @@ The project evaluates the robustness and stability of fundamental quantum algori
 
 The framework incorporates QEC-inspired simulation techniques, noisy circuit execution, logical error rate analysis, probability distribution tracking and repetition-code-based error mitigation to study:
 
-Logical state degradation
-Noise sensitivity
-Decoherence effects
-Probability drift
-Algorithm reliability under increasing quantum noise
+- Logical state degradation
+- Noise sensitivity
+- Decoherence effects
+- Probability drift
+- Algorithm reliability under increasing quantum noise
 
 The project was modernised for Qiskit 2.x and Qiskit Aer 0.17+, providing a modular experimental environment for quantum algorithm benchmarking, quantum error correction research and noisy intermediate-scale quantum (NISQ) system analysis.
 
