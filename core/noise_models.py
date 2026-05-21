@@ -31,9 +31,7 @@
 
 
 from qiskit_aer.noise import NoiseModel
-from qiskit_aer.noise.errors import (depolarizing_error, 
-                                     thermal_relaxation_error,
-                                     pauli_error)
+from qiskit_aer.noise.errors import (depolarizing_error, thermal_relaxation_error) # removed the pauli error (didn't use it in simulation)
 
 # deplorization 
 # depolarization errors consist of random X,Y,Z rotations caused by intrinisic coupling of the qubit environment. this happens when you apply gate operations
