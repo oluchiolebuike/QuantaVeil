@@ -31,7 +31,7 @@
 
 from qiskit import QuantumCircuit
 class ThreeQubitRepetition:
-    def __init___(self):
+    def __init__(self):
         self.n_qubits = 3
 
         # encode logical qubit
