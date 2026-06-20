@@ -37,24 +37,20 @@ def grover_oracle(circuit):
     # oracle marking : |11>
     # flip |11> using CZ
     circuit.cz(0, 1)
-    # circuit.cx(0, 1) 
-    # circuit.cx(1, 0)
 
 # apply the grover diffusion operator 
 # the diffuser performs inversion about the mean, amplifying the probability
 # amplitude of the marked state
 def grover_diffuser(circuit):
     # diffuser (inversion about the mean)
-    # amplify |11> upward
-
     # move to computational basis
     circuit.h([0, 1])
 
-    #reflect about |00>
+    # mapping |11> to |00> so CZ 
     circuit.x([0, 1])
 
     # phase inversion
-    circuit.cz(0, 1)  # marks |11> : |00> after x
+    circuit.cz(0, 1)  # marks |00> state (|11> pre-X)
 
     # undoing the reflection
     circuit.x([0, 1])
